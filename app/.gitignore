@@ -55,3 +55,11 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 aa0c32cd17552d2deace476f932e3f55.txt
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###

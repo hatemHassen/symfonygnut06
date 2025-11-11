@@ -4,12 +4,11 @@ namespace App\Security\UserProvider;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use KnpU\OAuth2ClientBundle\Security\User\OAuthUserProviderInterface;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-class GoogleUserProvider implements OAuthUserProviderInterface, UserProviderInterface
+class GoogleUserProvider implements UserProviderInterface
 {
     private EntityManagerInterface $em;
 
@@ -37,13 +36,18 @@ class GoogleUserProvider implements OAuthUserProviderInterface, UserProviderInte
         return $this->em->getRepository(User::class)->findOneBy(['email' => $username]);
     }
 
-    public function refreshUser(UserInterface $user)
+    public function refreshUser(UserInterface $user): UserInterface
     {
         return $this->em->getRepository(User::class)->find($user->getId());
     }
 
-    public function supportsClass($class)
+    public function supportsClass($class): bool
     {
         return User::class === $class;
+    }
+
+    public function loadUserByIdentifier(string $identifier): UserInterface
+    {
+        return $this->em->getRepository(User::class)->find($identifier);
     }
 }
