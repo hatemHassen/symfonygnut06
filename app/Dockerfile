@@ -1,99 +1,91 @@
 FROM php:8.2-apache
 
 WORKDIR /var/www/app
+ENV APP_ENV=prod
+ENV APP_DEBUG=0
 
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+# -------------------------------------------------------
+# System dependencies (one apt-get call only)
+# -------------------------------------------------------
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
+    apt-get update && apt-get install -y --no-install-recommends \
+    git curl wget nano locales ca-certificates unzip \
+    libicu-dev libxslt1.1 libpng-dev libzip-dev libxml2-dev libonig-dev \
+    openssl gnupg && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update \
-&& apt-get install -qq -y --no-install-recommends \
-cron \
-wget \
-nano \
-locales \
-coreutils \
-apt-utils \
-git \
-libicu-dev \
-g++ \
-libpng-dev \
-libxml2-dev \
-libzip-dev \
-libonig-dev \
-libxslt-dev \
-libcurl4-openssl-dev \
-libgd-dev \
-libssl-dev \
-libkrb5-dev
-
-RUN docker-php-ext-install curl pdo pdo_mysql mysqli gd opcache intl zip calendar dom mbstring gd xsl && a2enmod rewrite
-
+# -------------------------------------------------------
+# Locales
+# -------------------------------------------------------
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
-locale-gen
+    echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
+    locale-gen
 
-# install curl and git
-RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
-mv composer.phar /usr/local/bin/composer
-
-# Install Symfony CLI
-RUN wget https://get.symfony.com/cli/installer -O - | bash && \
-mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
-
-# Configure and install extensions
-RUN docker-php-ext-configure intl
-RUN docker-php-ext-install pdo pdo_mysql mysqli gd opcache intl zip calendar dom mbstring gd xsl && a2enmod rewrite
-RUN pecl install apcu && docker-php-ext-enable apcu
-
-# Use the mlocati installer for additional extensions
+# -------------------------------------------------------
+# PHP Extensions (FAST install — no compilation)
+# -------------------------------------------------------
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
-RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
-install-php-extensions amqp
+RUN chmod +x /usr/local/bin/install-php-extensions
 
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
+RUN install-php-extensions \
+    intl gd xsl zip mbstring dom pdo_mysql mysqli calendar opcache apcu xdebug
 
-RUN apt-get update && apt-get install -y \
-    curl \
-    ca-certificates
-RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
-RUN apt-get update && apt-get install -y nodejs
+# Enable Apache modules
+RUN a2enmod rewrite ssl
 
-# Install Node.js and npm
-RUN npm install -g n
-RUN n 20.17.0  # Install a compatible version of Node.js
-RUN npm install -g npm@11.2.0
-#RUN npm install npm@latest -g && \
-#npm install n -g && \
-#n latest
+# -------------------------------------------------------
+# Symfony CLI
+# -------------------------------------------------------
+RUN wget https://get.symfony.com/cli/installer -O - | bash && \
+    mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
 
-# SSL : Génération du certificat et configuration Apache
-EXPOSE 443
-RUN apt-get update && apt-get install -y openssl
+# -------------------------------------------------------
+# Node.js (fast installation)
+# -------------------------------------------------------
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get update && apt-get install -y nodejs && \
+    npm install -g npm
+
+# -------------------------------------------------------
+# SSL self-signed certificate
+# -------------------------------------------------------
 RUN mkdir -p /etc/apache2/ssl && \
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -keyout /etc/apache2/ssl/apache.key \
     -out /etc/apache2/ssl/apache.crt \
     -subj "/C=FR/ST=France/L=Paris/O=Dev/OU=Dev/CN=localhost"
-RUN a2enmod ssl
+
 COPY ./config/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 RUN a2ensite default-ssl
 
-# Configuration de Xdebug
+# -------------------------------------------------------
+# Xdebug configuration
+# -------------------------------------------------------
 COPY ./config/xdebug.ini /etc/php/8.2/apache2/conf.d/30-xdebug.ini
 COPY ./config/xdebug.ini /etc/php/8.2/cli/conf.d/30-xdebug.ini
 
-RUN chown -R root:root /var/www/app
+# -------------------------------------------------------
+# Composer (fastest method: use the official binary)
+# -------------------------------------------------------
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
-RUN chmod -R 755 /var/www/app
-RUN chmod +x /var/www/app/
-COPY . /var/www/app
+# -------------------------------------------------------
+# Copy project files with PERMISSIONS applied instantly
+# (much faster than chown -R !)
+# -------------------------------------------------------
+COPY --chown=www-data:www-data . /var/www/app
 
-# Ensure the composer.json file exists
-RUN composer install
+# Install PHP dependencies without scripts for speed
+# Increase memory + disable xdebug to avoid crashes
+# Install dependencies without running Symfony scripts
+RUN COMPOSER_MEMORY_LIMIT=-1 \
+    composer install \
+        --no-interaction \
+        --prefer-dist \
+        --optimize-autoloader \
+        --no-scripts
 
-EXPOSE 8000
 
-# CMD ["symfony", "serve","--no-tls"]
 
+EXPOSE 80 443
 CMD ["apache2-foreground"]
-# ENTRYPOINT ["/bin/bash", "/var/www/app/run.sh"]
