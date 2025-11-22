@@ -1,8 +1,0 @@
-<tr>
-    <td>{{ item.order.id }}</td>
-    <td>{{ item.order.formName }}</td>
-    <td>{% if item.name is defined %}{{ item.name }}{% endif %}yruyt</td>
-    <td>{{ item.order.date|format_datetime(pattern="d MMMM y 'à' HH'h'mm':'s", locale='fr', timezone='Europe/Paris') }}</td>
-    <td>{{ formattedPrice(item.amount) }}</td>
-</tr>
-

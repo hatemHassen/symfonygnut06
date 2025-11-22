@@ -2,8 +2,11 @@
 
 namespace App\Infrastructure\Http\Controller;
 
+use App\Infrastructure\Http\Service\OrderFetcher;
+use App\Infrastructure\Http\ValueObject\HelloAsso\Collection\OrderCollection;
 use App\Service\HelloAssoApiService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,53 +16,61 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/profil')]
 class ProfilController extends AbstractController
 {
-    private $helloAssoApiService;
 
-    public function __construct(HelloAssoApiService $helloAssoApiService)
+
+    public function __construct(
+        protected OrderFetcher $orderFetcher,
+    )
     {
-        $this->helloAssoApiService = $helloAssoApiService;
     }
 
     #[Route('', name: 'app_profil')]
-    public function index(Request $request): Response
+    public function index(): Response
     {
-        $user = $this->getUser();
-        $userEmail = urlencode($user->getUserIdentifier());
-        $page = $request->query->get('page', 1);
-        $response = $this->helloAssoApiService->getOrders($userEmail, $page);
+        return $this->render('profil/index.html.twig');
+    }
 
-        // dump($user);
-        $googleMapsApiKey = $_ENV['GNUT06MAPAPI'];
-        // exit;
-        // Renvoyer à la vue Twig, en passant l'utilisateur comme variable
-        return $this->render('profil/index.html.twig', [
-            'user' => $user,
-            'response' => $response,
-            'googleMapsApiKey' => $googleMapsApiKey,
+    #[Route('/orders', name: 'app_profil_orders')]
+    public function orders(): Response
+    {
+
+        return $this->render('profil/orders/orders.html.twig');
+    }
+
+    #[Route('/orders_data', name: 'app_profil_orders_data')]
+    public function ordersData(Request $request): JsonResponse
+    {
+
+        $start = $request->query->getInt('start');
+        $length = $request->query->getInt('length', 10);
+
+        $pageNumber = intdiv($start, $length)+1;
+        $query = [
+            'userSearchKey' => $this->getUser()->getUserIdentifier(),
+            'pageSize' => $length,
+        ];
+
+        $orders = $this->orderFetcher->fetchAllOrders($query);
+        $orderCollection = OrderCollection::fromHelloAssoResponse($orders);
+
+        return new JsonResponse([
+            'recordsTotal' => $orderCollection->getTotalCount() ,
+            'recordsFiltered' => $orderCollection->getFilteredCount(),
+            'data' => $orderCollection->getOrders($pageNumber, $length),
         ]);
     }
 
-    #[Route('/{donnees}/{page}', name: 'app_profil_page', defaults: ['page' => 1])]
-    public function page(string $page, string $donnees): Response
+    #[Route('/orders', name: 'app_profil_payments')]
+    public function payments(): Response
     {
         // Récupérer l'utilisateur connecté
         $user = $this->getUser();
         $userEmail = urlencode($user->getUserIdentifier());
-        // Utilisation de la fonction pour construire l'URL
-        if ($donnees === 'orders' || $donnees === 'payments') {
-            $base = $donnees === 'orders' ? "items" : "payments";
-            $url = self::buildHelloAssoUrl($base, $userEmail, $page, $donnees);
-        }
-
-        $data_items = $this->helloAssoApiService->makeApiCall($url);
-        // dump($user);
-        $googleMapsApiKey = $_ENV['GNUT06MAPAPI'];
+        $data_items = $this->helloAssoApiService->makeApiCall(self::buildHelloAssoUrl("items" , $userEmail, 1, "orders" ));
         // exit;
         // Renvoyer à la vue Twig, en passant l'utilisateur comme variable
-        return $this->render('profil/index.html.twig', [
-            'user' => $user,
-            'data_items' => $data_items,
-            'googleMapsApiKey' => $googleMapsApiKey,
+        return $this->render('profil/orders/orders.html.twig', [
+            'data_items' => $data_items
         ]);
     }
 
