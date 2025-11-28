@@ -5,7 +5,7 @@ namespace App\Infrastructure\Http\Service;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\Cache\CacheInterface;
 
-class OrderFetcher extends HelloAssoFetcher
+class PaymentFetcher extends HelloAssoFetcher
 {
 
     public function __construct(
@@ -72,30 +72,31 @@ class OrderFetcher extends HelloAssoFetcher
      * /
      * @throws \Psr\Cache\InvalidArgumentException
      */
-    public function fetchAllOrders(array $query): array
+    public function fetchAllPayments(array $query): array
     {
-        $cacheKey = sprintf('orders_%d', $query['pageSize']);
+        $cacheKey = sprintf('paymentsss_%d', $query['pageSize']);
 
         return $this->cache->get($cacheKey, function ($item) use ($query) {
             $query = array_merge($query, [
                     'withDetails' => 'false',
                     'sortOrder' => 'Desc',
                     'sortField' => 'Date',
-                    'itemStates' => 'Processed',
+                    'states' => 'Authorized',
                     'withCount' => 'true',
                     'pageIndex' => 1,
             ]);
 
             $params = http_build_query($query);
-            $apiUrl = sprintf("https://api.helloasso.com/v5/organizations/%s/items?%s", $this->slugAsso, $params);
-            $allOrders = [];
+            $apiUrl = sprintf("https://api.helloasso.com/v5/organizations/%s/payments?%s", $this->slugAsso, $params);
+
+            $allPayments = [];
             $token = null;
 
             $headers = [
                 'Authorization' => 'Bearer ' . $this->getToken(),
                 'Accept' => 'application/json',
             ];
-
+            $i=0;
             while (true) {
 
                 try {
@@ -108,15 +109,17 @@ class OrderFetcher extends HelloAssoFetcher
                         'headers' => $headers,
                         'query' => $params,
                     ]);
-
                     $data = $response->toArray(false);
                     $orders = $data['data'] ?? [];
-                    $allOrders = array_merge($allOrders, $orders);
+                    $allPayments = array_merge($allPayments, $orders);
 
                     $token = $data['pagination']['continuationToken'] ?? null;
-
                     if ($data['data'] === [] || $token === null) {
                         break; // No more pages, exit loop
+                    }
+                    $i++;
+                    if($i>10){
+                        break;
                     }
                 } catch (\Exception $e) {
                     // Handle exception if needed
@@ -126,7 +129,7 @@ class OrderFetcher extends HelloAssoFetcher
             }
 
             $item->expiresAfter(3600);
-            return $allOrders;
+            return $allPayments;
         });
     }
 }
