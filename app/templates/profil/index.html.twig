@@ -20,16 +20,16 @@
                         </li>
 
                         <li class="nav-item mb-2">
-                            <a class="nav-link d-flex flex-column align-items-center justify-content-center{{ (app.request.attributes.get('donnees') == 'orders') ? ' active' : '' }}"
-                               href="{{ path('app_profil_page', {'page': '1', 'donnees': 'orders'}) }}">
+                            <a class="nav-link d-flex flex-column align-items-center justify-content-center{{ app.request.attributes.get('_route') == 'app_profil_orders' ? ' active' : '' }}"
+                               href="{{ path('app_profil_orders') }}">
                                 <img src="{{ asset('images/webp/cart-frame.svg') }}" alt="Commandes" style="width:16px; height:16px;">
                                 <span class="mt-1" style="font-size: 16px">Commandes</span>
                             </a>
                         </li>
 
                         <li class="nav-item mb-2">
-                            <a class="nav-link d-flex flex-column align-items-center justify-content-center{{ (app.request.attributes.get('donnees') == 'payments') ? ' active' : '' }}"
-                               href="{{ path('app_profil_page', {'page': '1', 'donnees': 'payments'}) }}">
+                            <a class="nav-link d-flex flex-column align-items-center justify-content-center{{ app.request.attributes.get('_route') == 'app_profil_payments' ? ' active' : '' }}"
+                               href="{{ path('app_profil_payments') }}">
                                 <img src="{{ asset('images/webp/cash.svg') }}" alt="Paiements" style="width:16px; height:16px;">
                                 <span class="mt-1" style="font-size: 16px">Paiements</span>
                             </a>
@@ -40,16 +40,16 @@
                 <!-- ✅ Colonne droite : contenu dynamique -->
                 <div class="col-md-9 text-start p-3">
 
-                    <p class="fs-5 mb-1">Bienvenue, {{ user.email }}</p>
+                    <p class="fs-5 mb-1">Bienvenue, {{ app.user.email }}</p>
                     <p id="date" class="text-muted"></p>
 
                     <div class="container rounded mb-4">
                         <img src="{{ asset('images/webp/degrade.png') }}" class="rounded-top-3 mb-5" style="height: 100px; width: 100%;" alt="">
 
                         <div class="d-flex align-items-center">
-                            {% if user.profilePicture %}
+                            {% if app.user.profilePicture %}
                                 <!-- ✅ Photo de profil existante -->
-                                <img src="{{ asset('uploads/profilePictures/' ~ user.profilePicture) }}"
+                                <img src="{{ asset('uploads/profilePictures/' ~ app.user.profilePicture) }}"
                                      class="rounded-circle shadow me-3"
                                      style="width: 150px; height: 150px; object-fit: cover;">
                                 <div>
@@ -78,22 +78,18 @@
 
                             <div class="ms-4">
                                 <p class="fs-4">
-                                    {{ user.email }}
-                                    <i class="bi bi-patch-check {{ user.isVerified == 1 ? 'text-success' : 'text-danger' }}"></i>
-                                    {% if user.isVerified == 0 %}
-                                        <a href="{{ path('app_verify_email_renew', {'id': user.id}) }}">Demander un nouvel envoi d'email de confirmation</a>
+                                    {{ app.user.email }}
+                                    <i class="bi bi-patch-check {{ app.user.isVerified == 1 ? 'text-success' : 'text-danger' }}"></i>
+                                    {% if app.user.isVerified == 0 %}
+                                        <a href="{{ path('app_verify_email_renew', {'id': app.user.id}) }}">Demander un nouvel envoi d'email de confirmation</a>
                                     {% endif %}
                                 </p>
-                                <p>Identifiant : {{ user.id }}</p>
+                                <p>Identifiant : {{ app.user.id }}</p>
                             </div>
                         </div>
                     </div>
 
-                    {# 🔄 Contenu dynamique selon le menu cliqué #}
-                    {% set section = app.request.attributes.get('donnees') ?? (app.request.attributes.get('_route') == 'app_profil' ? 'profile' : '') %}
-
-                    {% if section == 'profile' %}
-                        <!-- 🧍‍♂️ Formulaire du profil -->
+                    {% block section %}
                         <div class="container my-5 p-4 bg-light rounded shadow">
                             <form action="#" method="post" class="text-start">
                                 <div class="row">
@@ -170,33 +166,7 @@
 
                             </form>
                         </div>
-
-                    {% elseif section == 'orders' %}
-                        <!-- 🛒 Section Commandes -->
-                        <div class="container my-5">
-                            <h4>Mes dernières commandes</h4>
-                            {% if data_items is defined and data_items['data'] is not empty %}
-                                {% for item in data_items['data'] %}
-                                    {% include 'profil/orders.html.twig' %}
-                                {% endfor %}
-                            {% else %}
-                                <p>Aucune commande à afficher.</p>
-                            {% endif %}
-                        </div>
-
-                    {% elseif section == 'payments' %}
-                        <!-- 💶 Section Paiements -->
-                        <div class="container my-5">
-                            <h4>Mes paiements</h4>
-                            {% if data_items is defined and data_items['data'] is not empty %}
-                                {% for item in data_items['data'] %}
-                                    {% include 'profil/payments.html.twig' %}
-                                {% endfor %}
-                            {% else %}
-                                <p>Aucun paiement à afficher.</p>
-                            {% endif %}
-                        </div>
-                    {% endif %}
+                    {% endblock %}
                 </div> <!-- Fin colonne droite -->
             </div> <!-- Fin row -->
         </div> <!-- Fin container -->
@@ -259,6 +229,12 @@
             margin-bottom: 0 !important;
         }
     </style>
+
+{% endblock %}
+
+{% block javascripts%}
+    {{ parent() }}
+
 
     <script>
         // Récupère la date du jour

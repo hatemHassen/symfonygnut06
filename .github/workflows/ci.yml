@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Start Docker Compose
+        run: docker compose up -d --build
+
+      - name: Wait for services
+        run: sleep 10
+
+      - name: Install PHP dependencies
+        run: |
+          docker compose exec -T symfony \
+            composer install --no-interaction --prefer-dist --no-scripts
+
+      - name: Run PHPStan
+        run: |
+          echo "→ Running PHPStan"
+          docker compose exec -T symfony \
+            php -d memory_limit=-1 vendor/bin/phpstan analyse --no-progress
+
+      - name: Run PHPUnit
+        run: |
+          echo "→ Running PHPUnit"
+          docker compose exec -T symfony vendor/bin/phpunit --colors=always
+
+      - name: Run PHPCS on changed files
+        run: |
+          echo "→ Running PHPCS on changed files"
+          CHANGED_FILES=$(git diff --name-only origin/main...HEAD | grep '\.php$' || true)
+          if [ -z "$CHANGED_FILES" ]; then
+            echo "No changes → skipping"
+          else
+            echo "$CHANGED_FILES" | xargs -I {} docker compose exec -T symfony vendor/bin/phpcs --standard=PSR12 {}
+          fi

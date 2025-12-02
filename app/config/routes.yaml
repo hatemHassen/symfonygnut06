@@ -4,6 +4,12 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+controllers_infrastructure:
+  resource:
+    path: ../src/Infrastructure/Http
+    namespace: App\Infrastructure\Http
+  type: attribute
+
 # config/routes.yaml
 send_email:
     path: /email

@@ -80,7 +80,7 @@ class AssoRecommanderService
                 }
 
             } else {
-                return "Pas de données dans le tableau ".$data;
+                return "Pas de données dans le tableau ";
             }
         } catch(Exception $e) {
             return $e;

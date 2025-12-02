@@ -1,0 +1,924 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Property App\\Controller\\AdhesionController\:\:\$twig has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/AdhesionController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminAssoRecommanderController\:\:updateData\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/AdminAssoRecommanderController.php
+
+		-
+			message: '#^Property App\\Controller\\AdminAssoRecommanderController\:\:\$assoRecommanderRepository has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/AdminAssoRecommanderController.php
+
+		-
+			message: '#^Property App\\Controller\\AdminAssoRecommanderController\:\:\$assoRecommanderService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/AdminAssoRecommanderController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminBenevoleController\:\:handleCvUpload\(\) is unused\.$#'
+			identifier: method.unused
+			count: 1
+			path: src/Controller/AdminBenevoleController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:api\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildApiUrl\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildApiUrl\(\) has parameter \$donnees with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildApiUrl\(\) has parameter \$formSlug with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildApiUrl\(\) has parameter \$formType with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildApiUrl\(\) has parameter \$page with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildApiUrl\(\) has parameter \$tierTypes with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildDetaislUrl\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildDetaislUrl\(\) has parameter \$id with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:buildDetaislUrl\(\) has parameter \$type with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:dashboard\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Method App\\Controller\\AdminController\:\:details\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Property App\\Controller\\AdminController\:\:\$helloAssoApiService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/AdminController.php
+
+		-
+			message: '#^Variable \$form might not be defined\.$#'
+			identifier: variable.undefined
+			count: 4
+			path: src/Controller/AdminDonateurController.php
+
+		-
+			message: '#^If condition is always true\.$#'
+			identifier: if.alwaysTrue
+			count: 2
+			path: src/Controller/AdminEntrepriseController.php
+
+		-
+			message: '#^Property App\\Controller\\AdminOhmeController\:\:\$ohmeApiService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/AdminOhmeController.php
+
+		-
+			message: '#^Method App\\Service\\PaginationService\:\:getPaginatedDataSearch\(\) invoked with 3 parameters, 2 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: src/Controller/AssoRecommanderController.php
+
+		-
+			message: '#^Property App\\Controller\\AssoRecommanderController\:\:\$assoRecommanderRepository has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/AssoRecommanderController.php
+
+		-
+			message: '#^Property App\\Controller\\AssoRecommanderController\:\:\$assoRecommanderRepository is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Controller/AssoRecommanderController.php
+
+		-
+			message: '#^Property App\\Controller\\AssoRecommanderController\:\:\$assoRecommanderService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/AssoRecommanderController.php
+
+		-
+			message: '#^Property App\\Controller\\AssoRecommanderController\:\:\$assoRecommanderService is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Controller/AssoRecommanderController.php
+
+		-
+			message: '#^Property App\\Controller\\AssoRecommanderController\:\:\$helloAssoApiService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/AssoRecommanderController.php
+
+		-
+			message: '#^Property App\\Controller\\BilletteriesController\:\:\$dataFilterAndPaginator has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/BilletteriesController.php
+
+		-
+			message: '#^Property App\\Controller\\BilletteriesController\:\:\$helloAssoApiService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/BilletteriesController.php
+
+		-
+			message: '#^Method App\\Controller\\DonateurController\:\:renderWithForms\(\) has parameter \$formPhysique with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/DonateurController.php
+
+		-
+			message: '#^Method App\\Controller\\DonateurController\:\:renderWithForms\(\) has parameter \$formSociete with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/DonateurController.php
+
+		-
+			message: '#^Method App\\Controller\\GoogleController\:\:connectCheckAction\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/GoogleController.php
+
+		-
+			message: '#^Parameter \#1 \$user of method App\\Service\\EmailService\:\:sendConfirmationEmail\(\) expects App\\Entity\\User, Symfony\\Component\\Security\\Core\\User\\UserInterface given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controller/GoogleController.php
+
+		-
+			message: '#^Property App\\Controller\\GoogleController\:\:\$emailVerifier is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Controller/GoogleController.php
+
+		-
+			message: '#^Property App\\Controller\\GoogleController\:\:\$user is unused\.$#'
+			identifier: property.unused
+			count: 1
+			path: src/Controller/GoogleController.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 2
+			path: src/Controller/GoogleController.php
+
+		-
+			message: '#^Method App\\Controller\\MailjetController\:\:index\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/MailjetController.php
+
+		-
+			message: '#^Property App\\Controller\\MailjetController\:\:\$mailjetService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/MailjetController.php
+
+		-
+			message: '#^Property App\\Controller\\MetaversController\:\:\$apiFrameVrService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/MetaversController.php
+
+		-
+			message: '#^Method App\\Controller\\NotificationController\:\:updatePayer\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Controller/NotificationController.php
+
+		-
+			message: '#^Method App\\Controller\\NotificationController\:\:verifyPayer\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Controller/NotificationController.php
+
+		-
+			message: '#^Method App\\Controller\\NotificationController\:\:verifyPayer\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Controller/NotificationController.php
+
+		-
+			message: '#^Property App\\Controller\\NotificationController\:\:\$em has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Controller/NotificationController.php
+
+		-
+			message: '#^Call to an undefined method KnpU\\OAuth2ClientBundle\\Client\\OAuth2ClientInterface\:\:fetchAccessToken\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Controller/OAuthTestController.php
+
+		-
+			message: '#^Method KnpU\\OAuth2ClientBundle\\Client\\OAuth2ClientInterface\:\:redirect\(\) invoked with 0 parameters, 2 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: src/Controller/OAuthTestController.php
+
+		-
+			message: '#^Method KnpU\\OAuth2ClientBundle\\Client\\OAuth2ClientInterface\:\:redirect\(\) invoked with 1 parameter, 2 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: src/Controller/OAuthTestController.php
+
+		-
+			message: '#^Method KnpU\\OAuth2ClientBundle\\Client\\OAuth2ClientInterface\:\:redirect\(\) invoked with 0 parameters, 2 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: src/Controller/OutlookController.php
+
+		-
+			message: '#^Property App\\Controller\\RegistrationController\:\:\$appEnv is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Controller/RegistrationController.php
+
+		-
+			message: '#^Property App\\Controller\\RegistrationController\:\:\$recaptchaSecret is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Controller/RegistrationController.php
+
+		-
+			message: '#^Method App\\Entity\\AssoRecommander\:\:fillFromApiData\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Entity/AssoRecommander.php
+
+		-
+			message: '#^Property App\\Entity\\AssoRecommander\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/AssoRecommander.php
+
+		-
+			message: '#^Property App\\Entity\\Benevole\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/Benevole.php
+
+		-
+			message: '#^Property App\\Entity\\Casque\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/Casque.php
+
+		-
+			message: '#^Property App\\Entity\\Don\:\:\$casques with generic interface Doctrine\\Common\\Collections\\Collection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Entity/Don.php
+
+		-
+			message: '#^Property App\\Entity\\Don\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/Don.php
+
+		-
+			message: '#^Method App\\Entity\\Donateur\:\:getDons\(\) return type with generic interface Doctrine\\Common\\Collections\\Collection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Entity/Donateur.php
+
+		-
+			message: '#^Property App\\Entity\\Donateur\:\:\$dons with generic interface Doctrine\\Common\\Collections\\Collection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Entity/Donateur.php
+
+		-
+			message: '#^Property App\\Entity\\Donateur\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/Donateur.php
+
+		-
+			message: '#^Property App\\Entity\\Entreprise\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/Entreprise.php
+
+		-
+			message: '#^Property App\\Entity\\Marque\:\:\$casques with generic interface Doctrine\\Common\\Collections\\Collection does not specify its types\: TKey, T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Entity/Marque.php
+
+		-
+			message: '#^Property App\\Entity\\Marque\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/Marque.php
+
+		-
+			message: '#^Property App\\Entity\\ModeLivraison\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/ModeLivraison.php
+
+		-
+			message: '#^Property App\\Entity\\PartenaireLogistique\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/PartenaireLogistique.php
+
+		-
+			message: '#^Property App\\Entity\\Payers\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/Payers.php
+
+		-
+			message: '#^Property App\\Entity\\ResetPasswordRequest\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/ResetPasswordRequest.php
+
+		-
+			message: '#^Property App\\Entity\\User\:\:\$id \(int\|null\) is never assigned int so it can be removed from the property type\.$#'
+			identifier: property.unusedType
+			count: 1
+			path: src/Entity/User.php
+
+		-
+			message: '#^Property App\\Entity\\User\:\:\$profile_picture has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Entity/User.php
+
+		-
+			message: '#^Method App\\Infrastructure\\Http\\Controller\\ProfilController\:\:buildHelloAssoUrl\(\) has parameter \$base with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Infrastructure/Http/Controller/ProfilController.php
+
+		-
+			message: '#^Method App\\Infrastructure\\Http\\Controller\\ProfilController\:\:buildHelloAssoUrl\(\) has parameter \$page with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Infrastructure/Http/Controller/ProfilController.php
+
+		-
+			message: '#^Method App\\Infrastructure\\Http\\Controller\\ProfilController\:\:buildHelloAssoUrl\(\) has parameter \$type with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Infrastructure/Http/Controller/ProfilController.php
+
+		-
+			message: '#^Method App\\Infrastructure\\Http\\Controller\\ProfilController\:\:buildHelloAssoUrl\(\) has parameter \$userEmail with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Infrastructure/Http/Controller/ProfilController.php
+		-
+			message: '#^Method App\\Infrastructure\\Http\\ValueObject\\HelloAsso\\Entity\\Order\:\:fromHelloAssoResponse\(\) has parameter \$orderData with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Infrastructure/Http/ValueObject/HelloAsso/Entity/Order.php
+
+		-
+			message: '#^Method App\\MessageHandler\\NotificationHandler\:\:__invoke\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/MessageHandler/NotificationHandler.php
+
+		-
+			message: '#^Method App\\Repository\\AssoRecommanderRepository\:\:findDistinctCities\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Repository/AssoRecommanderRepository.php
+
+		-
+			message: '#^Method App\\Repository\\AssoRecommanderRepository\:\:findSearch\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Repository/AssoRecommanderRepository.php
+
+		-
+			message: '#^Method App\\Repository\\CasqueRepository\:\:TrouveCasquesParDon\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Repository/CasqueRepository.php
+
+		-
+			message: '#^Method App\\Repository\\CasqueRepository\:\:TrouveCasquesParDon\(\) has parameter \$don with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Repository/CasqueRepository.php
+
+		-
+			message: '#^Class App\\Repository\\DonRepository extends generic class Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository but does not specify its types\: T$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Repository/DonRepository.php
+
+		-
+			message: '#^Method App\\Repository\\DonRepository\:\:TrouveDonsParDonateur\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Repository/DonRepository.php
+
+		-
+			message: '#^Method App\\Repository\\DonRepository\:\:TrouveDonsParDonateur\(\) has parameter \$donateur with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Repository/DonRepository.php
+
+		-
+			message: '#^Method App\\Repository\\DonRepository\:\:findAllWithDetails\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Repository/DonRepository.php
+
+		-
+			message: '#^Class App\\Entity\\EntreprisePartenaire not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Repository/EntreprisePartenaireRepository.php
+
+		-
+			message: '#^PHPDoc tag @extends has invalid type App\\Entity\\EntreprisePartenaire\.$#'
+			identifier: class.notFound
+			count: 1
+			path: src/Repository/EntreprisePartenaireRepository.php
+
+		-
+			message: '#^If condition is always true\.$#'
+			identifier: if.alwaysTrue
+			count: 1
+			path: src/Security/GoogleAuthenticator.php
+
+		-
+			message: '#^Property App\\Security\\GoogleAuthenticator\:\:\$session is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Security/GoogleAuthenticator.php
+
+		-
+			message: '#^Call to an undefined method League\\OAuth2\\Client\\Provider\\ResourceOwnerInterface\:\:getEmail\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Security/UserProvider/GoogleUserProvider.php
+
+		-
+			message: '#^Call to an undefined method Symfony\\Component\\Security\\Core\\User\\UserInterface\:\:getId\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Security/UserProvider/GoogleUserProvider.php
+
+		-
+			message: '#^Class App\\Security\\UserProvider\\GoogleUserProvider implements generic interface Symfony\\Component\\Security\\Core\\User\\UserProviderInterface but does not specify its types\: TUser$#'
+			identifier: missingType.generics
+			count: 1
+			path: src/Security/UserProvider/GoogleUserProvider.php
+
+		-
+			message: '#^Method App\\Security\\UserProvider\\GoogleUserProvider\:\:loadUserByOAuthUserResponse\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Security/UserProvider/GoogleUserProvider.php
+
+		-
+			message: '#^Method App\\Security\\UserProvider\\GoogleUserProvider\:\:loadUserByUsername\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Security/UserProvider/GoogleUserProvider.php
+
+		-
+			message: '#^Method App\\Security\\UserProvider\\GoogleUserProvider\:\:loadUserByUsername\(\) has parameter \$username with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Security/UserProvider/GoogleUserProvider.php
+
+		-
+			message: '#^Method App\\Security\\UserProvider\\GoogleUserProvider\:\:supportsClass\(\) has parameter \$class with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Security/UserProvider/GoogleUserProvider.php
+
+		-
+			message: '#^Method App\\Service\\ApiFrameVrService\:\:getSomeData\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/ApiFrameVrService.php
+
+		-
+			message: '#^Property App\\Service\\ApiFrameVrService\:\:\$apiKey has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ApiFrameVrService.php
+
+		-
+			message: '#^Property App\\Service\\ApiFrameVrService\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/ApiFrameVrService.php
+
+		-
+			message: '#^Method App\\Service\\AssoRecommanderService\:\:createdAssoRecommanderFromApi\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/AssoRecommanderService.php
+
+		-
+			message: '#^Method App\\Service\\AssoRecommanderService\:\:isDataChanged\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/AssoRecommanderService.php
+
+		-
+			message: '#^Method App\\Service\\AssoRecommanderService\:\:isDataChanged\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/AssoRecommanderService.php
+
+		-
+			message: '#^Method App\\Service\\AssoRecommanderService\:\:updateAssoRecommanderFromApi\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/AssoRecommanderService.php
+
+		-
+			message: '#^Property App\\Service\\AssoRecommanderService\:\:\$entityManager has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/AssoRecommanderService.php
+
+		-
+			message: '#^Property App\\Service\\AssoRecommanderService\:\:\$helloAssoApiService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/AssoRecommanderService.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 1
+			path: src/Service/AssoRecommanderService.php
+
+		-
+			message: '#^Method App\\Service\\DataFilterAndPaginator\:\:filterAndSortData\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/DataFilterAndPaginator.php
+
+		-
+			message: '#^Method App\\Service\\DataFilterAndPaginator\:\:filterAndSortData\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/DataFilterAndPaginator.php
+
+		-
+			message: '#^Method App\\Service\\DataFilterAndPaginator\:\:filterMemberShipSortData\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/DataFilterAndPaginator.php
+
+		-
+			message: '#^Method App\\Service\\DataFilterAndPaginator\:\:filterMemberShipSortData\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/DataFilterAndPaginator.php
+
+		-
+			message: '#^Method App\\Service\\DataFilterAndPaginator\:\:paginateData\(\) has parameter \$data with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/DataFilterAndPaginator.php
+
+		-
+			message: '#^Method App\\Service\\DataFilterAndPaginator\:\:paginateData\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/DataFilterAndPaginator.php
+
+		-
+			message: '#^Method App\\Service\\HelloAssoApiService\:\:makeApiCall\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/HelloAssoApiService.php
+
+		-
+			message: '#^Method App\\Service\\HelloAssoApiService\:\:makeApiCall\(\) has parameter \$headers with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/HelloAssoApiService.php
+
+		-
+			message: '#^Method App\\Service\\HelloAssoAuthService\:\:getSession\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/HelloAssoAuthService.php
+
+		-
+			message: '#^Property App\\Service\\HelloAssoAuthService\:\:\$apiClientId has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/HelloAssoAuthService.php
+
+		-
+			message: '#^Property App\\Service\\HelloAssoAuthService\:\:\$apiClientSecret has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/HelloAssoAuthService.php
+
+		-
+			message: '#^Property App\\Service\\HelloAssoAuthService\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/HelloAssoAuthService.php
+
+		-
+			message: '#^Property App\\Service\\HelloAssoAuthService\:\:\$requestStack has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/HelloAssoAuthService.php
+
+		-
+			message: '#^Method App\\Service\\MailjetService\:\:sendEmail\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/MailjetService.php
+
+		-
+			message: '#^Method App\\Service\\MailjetService\:\:sendEmail\(\) has parameter \$message with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/MailjetService.php
+
+		-
+			message: '#^Property App\\Service\\MailjetService\:\:\$apiKey has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/MailjetService.php
+
+		-
+			message: '#^Property App\\Service\\MailjetService\:\:\$apiSecret has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/MailjetService.php
+
+		-
+			message: '#^Method App\\Service\\OhmeApiService\:\:getContacts\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/OhmeApiService.php
+
+		-
+			message: '#^Method App\\Service\\OhmeApiService\:\:getContacts\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/OhmeApiService.php
+
+		-
+			message: '#^Property App\\Service\\OhmeApiService\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/OhmeApiService.php
+
+		-
+			message: '#^Property App\\Service\\OhmeApiService\:\:\$secretOhme has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/OhmeApiService.php
+
+		-
+			message: '#^Property App\\Service\\OhmeApiService\:\:\$slugAsso has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/OhmeApiService.php
+
+		-
+			message: '#^Method App\\Service\\PaginationService\:\:getPaginatedData\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/PaginationService.php
+
+		-
+			message: '#^Method App\\Service\\PaginationService\:\:getPaginatedDataCity\(\) has parameter \$city with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/PaginationService.php
+
+		-
+			message: '#^Method App\\Service\\PaginationService\:\:getPaginatedDataCity\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/PaginationService.php
+
+		-
+			message: '#^Method App\\Service\\PaginationService\:\:getPaginatedDataSearch\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/Service/PaginationService.php
+
+		-
+			message: '#^Property App\\Service\\PaginationService\:\:\$assoRecommanderRepository has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/PaginationService.php
+
+		-
+			message: '#^Property App\\Service\\PaginationService\:\:\$entityManager has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/PaginationService.php
+
+		-
+			message: '#^Property App\\Service\\PaginationService\:\:\$limit has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/PaginationService.php
+
+		-
+			message: '#^Property App\\Service\\RecaptchaVerifier\:\:\$secretKey is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Service/RecaptchaVerifier.php
+
+		-
+			message: '#^Method App\\Service\\TokenManager\:\:checkAndUpdateToken\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Method App\\Service\\TokenManager\:\:fetchToken\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Method App\\Service\\TokenManager\:\:fetchToken\(\) has parameter \$params with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Method App\\Service\\TokenManager\:\:fetchToken\(\) has parameter \$url with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Method App\\Service\\TokenManager\:\:updateTokens\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Method App\\Service\\TokenManager\:\:updateTokens\(\) has parameter \$data with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Property App\\Service\\TokenManager\:\:\$client has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Property App\\Service\\TokenManager\:\:\$clientId has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Property App\\Service\\TokenManager\:\:\$clientSecret has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Property App\\Service\\TokenManager\:\:\$session has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Property App\\Service\\TokenManager\:\:\$slugAsso has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Property App\\Service\\TokenManager\:\:\$slugAsso is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Property App\\Service\\TokenManager\:\:\$urlToken has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Service/TokenManager.php
+
+		-
+			message: '#^Method App\\Twig\\AppExtension\:\:formatPrice\(\) has parameter \$number with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Twig/AppExtension.php
+
+		-
+			message: '#^Method App\\Twig\\AppExtension\:\:getEventsAssoRecommender\(\) has parameter \$organizationSlug with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Twig/AppExtension.php
+
+		-
+			message: '#^Method App\\Twig\\AppExtension\:\:randomImage\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Twig/AppExtension.php
+
+		-
+			message: '#^Method App\\Twig\\AppExtension\:\:randomImage\(\) has parameter \$directory with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Twig/AppExtension.php
+
+		-
+			message: '#^Method App\\Twig\\AppExtension\:\:urlDecode\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: src/Twig/AppExtension.php
+
+		-
+			message: '#^Method App\\Twig\\AppExtension\:\:urlDecode\(\) has parameter \$value with no type specified\.$#'
+			identifier: missingType.parameter
+			count: 1
+			path: src/Twig/AppExtension.php
+
+		-
+			message: '#^Property App\\Twig\\AppExtension\:\:\$dataFilterAndPaginator has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Twig/AppExtension.php
+
+		-
+			message: '#^Property App\\Twig\\AppExtension\:\:\$helloAssoApiService has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Twig/AppExtension.php
+
+		-
+			message: '#^Property App\\Twig\\AppExtension\:\:\$parameterBag has no type specified\.$#'
+			identifier: missingType.property
+			count: 1
+			path: src/Twig/AppExtension.php
